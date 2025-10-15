@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 app.get('/api/trends', async (req, res) => {
     const { country = 'my', category = 'general' } = req.query;
     let lang = 'en';
-    if (country === 'cn' || country === 'tw') {
+    if (country === 'cn' || country === 'tw' || country === 'my') {
         lang = 'zh';
     }
     console.log(`Fetching top headlines from GNews for country: ${country}, category: ${category}, language: ${lang}...`);
@@ -84,9 +84,17 @@ async function refreshRecommendationsCache() {
         const categories = ['general']; // Reduced categories
         let allArticles = [];
 
+        const getLangForCountry = (countryCode) => {
+            if (countryCode === 'cn' || countryCode === 'tw' || countryCode === 'my') {
+                return 'zh';
+            }
+            return 'en';
+        };
+
         for (const country of countries) {
             for (const category of categories) {
-                const url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&country=${country}&max=100&apikey=${GNEWS_API_KEY}`;
+                const lang = getLangForCountry(country);
+                const url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=${lang}&country=${country}&max=100&apikey=${GNEWS_API_KEY}`;
                 const response = await axios.get(url);
                 allArticles = allArticles.concat(response.data.articles);
                 await sleep(1000); // Introduce a 1-second delay between API calls
