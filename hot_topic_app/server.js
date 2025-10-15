@@ -138,6 +138,4 @@ app.get('/api/recommendations', (req, res) => { // Make it synchronous as it onl
 });
 
 // --- Server Initialization ---
-app.listen(PORT, () => {
-    console.log(`Server is running at http://127.0.0.1:${PORT}`);
-});
+module.exports = app;
