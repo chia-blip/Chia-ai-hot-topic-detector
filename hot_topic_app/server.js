@@ -26,12 +26,12 @@ function sleep(ms) {
 
 // --- Middleware ---
 // Serve static files from the 'static' directory
-app.use('/static', express.static(path.join(__dirname, 'static')));
+app.use('/static', express.static(path.join(process.cwd(), 'hot_topic_app', 'static')));
 
 // --- API Endpoints ---
 // Serve the main HTML file from the 'templates' directory
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'templates', 'index.html'));
+    res.sendFile(path.join(process.cwd(), 'hot_topic_app', 'templates', 'index.html'));
 });
 
 // API endpoint to get the trends data

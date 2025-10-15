@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "hot_topic_app/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "hot_topic_app/server.js"
+    }
+  ]
+}
