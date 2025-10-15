@@ -1,0 +1,187 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    margin: 0;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.subheader {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filters label {
+    font-weight: 500;
+    color: #555;
+}
+
+.filters select {
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.filters select:hover {
+    border-color: #3498db;
+}
+
+#last-updated {
+    text-align: center;
+    color: #95a5a6;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+#trends-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem; /* Add space below trends container */
+}
+
+#recommendations-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+#recommendations-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+#recommendations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.trend-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 1.5rem;
+    transition: transform 0.2s ease-in-out;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Use the default text color */
+}
+
+.trend-item:hover {
+    transform: translateY(-3px);
+}
+
+.trend-rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3498db;
+    min-width: 30px;
+    text-align: center;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.trend-image-container {
+    flex-shrink: 0; /* Prevent shrinking */
+    width: 120px; /* Fixed width for the image */
+    height: 80px; /* Fixed height for the image */
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.trend-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+}
+
+.trend-content {
+    flex-grow: 1; /* Allow content to take remaining space */
+}
+
+.trend-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.trend-description {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.trend-source {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* Specific styling for recommendation items if needed */
+.recommendation-item {
+    border: 1px solid #dcdcdc; /* Slightly different border for distinction */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .trend-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .trend-image-container {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 1rem;
+    }
+
+    .trend-rank {
+        margin-bottom: 0.5rem;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filters select {
+        width: 80%;
+    }
+}
