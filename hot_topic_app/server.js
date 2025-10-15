@@ -73,15 +73,15 @@ app.get('/api/trends', async (req, res) => {
 
 let cachedRecommendations = [];
 let lastRecommendationFetchTime = 0; // This variable is no longer strictly needed with setInterval, but can be kept for debugging/logging
-const RECOMMENDATION_REFRESH_INTERVAL = 60 * 60 * 1000; // Refresh every 1 hour
+const RECOMMENDATION_REFRESH_INTERVAL = 12 * 60 * 60 * 1000; // Refresh every 12 hours
 
 // Function to fetch and cache recommendations in the background
 async function refreshRecommendationsCache() {
     console.log("Refreshing recommendations cache in background...");
     try {
         // Fetch from a single, most relevant combination to minimize API calls
-        const countries = ['my', 'us', 'gb', 'cn', 'tw']; // Expanded countries
-        const categories = ['general', 'business', 'technology']; // Expanded categories
+        const countries = ['my', 'us']; // Reduced countries
+        const categories = ['general']; // Reduced categories
         let allArticles = [];
 
         for (const country of countries) {
